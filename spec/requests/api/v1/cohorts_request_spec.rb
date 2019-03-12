@@ -3,7 +3,7 @@ require "rails_helper"
 describe "cohorts API" do
   it "sends a list of cohorts" do
 
-    create_cohorts(:cohorts, 5)
+    create_list(:cohort, 5)
 
     get '/api/v1/cohorts'
 
