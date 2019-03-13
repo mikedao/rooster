@@ -1,7 +1,11 @@
 class AirtableService
 
   def get_cohorts
-    get_json("https://api.airtable.com/v0/#{ENV['table_key']}/Cohort?api_key=#{ENV['airtable_key']}")[:records]
+    get_json("#{ENV['table_key']}/Cohort?api_key=#{ENV['airtable_key']}")[:records]
+  end
+
+  def get_students
+    get_json("#{ENV['table_key']}/Students?api_key=#{ENV['airtable_key']}")[:records]
   end
 
   private

@@ -9,7 +9,11 @@ class DatabaseUpdater
           c.cohort_id = cohort_data[:id]
       end
     end
+
+    students = service.get_students
+    binding.pry
   end
+
 
   private
 
