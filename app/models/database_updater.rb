@@ -11,7 +11,7 @@ class DatabaseUpdater
     end
 
     students = service.get_students
-    binding.pry
+
   end
 
 

@@ -15,6 +15,6 @@ class Api::V1::CohortsController < ApplicationController
   private
 
   def valid_key?(key)
-    key == ENV['external_key']
+    key == ENV['update_key']
   end
 end
