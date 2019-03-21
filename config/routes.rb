@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :cohorts, only: [:index, :update]
-    end
-  end
+   put '/api/v1/cohorts', to: 'api/v1/cohorts#update'
+   get '/api/v1/cohorts', to: 'api/v1/cohorts#index'
 end

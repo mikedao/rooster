@@ -11,7 +11,6 @@ class DatabaseUpdater
     end
 
     students = service.get_students
-    binding.pry
     students.each do |student_data|
       create_student(student_data)
     end
