@@ -11,6 +11,6 @@ class StudentSerializer
   end
 
   attribute :current_cohort do |object|
-    object.cohort.name
+    object.cohort.name + "-" + object.program
   end
 end
