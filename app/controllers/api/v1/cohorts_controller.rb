@@ -18,9 +18,7 @@ class Api::V1::CohortsController < ApplicationController
 
   def show
     if valid_consume_key?(params[:key])
-      cohort = params[:id][0..3]
-      program = params[:id][-1].upcase
-      students = Cohort.find_by(name: cohort).students.where(program: program)
+      students = Cohort.find_by(name: cohort).students.where(program: program).includes(:cohort)
       render json: StudentSerializer.new(students)
     else
       render body: "Unauthorized", status: 401
@@ -36,4 +34,13 @@ class Api::V1::CohortsController < ApplicationController
   def valid_consume_key?(key)
     key == ENV['consume_key']
   end
+
+  def cohort
+    params[:id][0..3]
+  end
+
+  def program
+    params[:id][-1].upcase
+  end
+
 end
