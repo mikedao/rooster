@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_03_19_165601) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "cohorts", force: :cascade do |t|
@@ -24,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_165601) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "name"
+    t.citext "name"
     t.string "starting_cohort"
     t.string "current_cohort"
     t.string "program"
