@@ -1,4 +1,5 @@
-Rooster API requires param based key authentication with the param, `key`.
+Rooster API requires parameter based key authentication with the parameter,
+`key`.
 
 Endpoints:
 
