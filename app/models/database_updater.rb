@@ -37,6 +37,6 @@ class DatabaseUpdater
   end
 
   def valid_student_data?(data)
-    data[:🔐Name] && data[:"🔐Starting Cohort"].first && data[:"🔐Current Cohort"].first && data[:🔐Program]
+    data[:🔐Name] && data[:"🔐Starting Cohort"] && data[:"🔐Current Cohort"] && data[:🔐Program]
   end
 end
