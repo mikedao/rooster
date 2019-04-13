@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_165601) do
+ActiveRecord::Schema.define(version: 2019_04_13_003020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_165601) do
     t.string "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["cohort_id"], name: "index_cohorts_on_cohort_id"
   end
 

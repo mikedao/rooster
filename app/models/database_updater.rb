@@ -3,7 +3,8 @@ class DatabaseUpdater
     cohorts = service.get_cohorts
     cohorts.each do |cohort_data|
       cohort = Cohort.where(name: cohort_data[:fields][:Name],
-                            cohort_id: cohort_data[:id])
+                            cohort_id: cohort_data[:id],
+                            status: cohort_data[:fields][:Status].first)
         .first_or_create do |c|
         c.name = cohort_data[:fields][:Name]
         c.cohort_id = cohort_data[:id]
@@ -15,7 +16,6 @@ class DatabaseUpdater
       create_student(student_data)
     end
   end
-
 
   private
 
@@ -39,7 +39,4 @@ class DatabaseUpdater
   def valid_student_data?(data)
     data[:🔐Name] && data[:"🔐Starting Cohort"].first && data[:"🔐Current Cohort"].first && data[:🔐Program]
   end
-
-
-
 end
