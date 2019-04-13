@@ -7,6 +7,14 @@ class Api::V1::CohortsController < ApplicationController
     end
   end
 
+  def active
+    if valid_consume_key?(params[:key])
+      render json: CohortSerializer.new(Cohort.where(status: "Active"))
+    else
+      render body: "Unauthorizer", status: 401
+    end
+  end
+
   def update
     if valid_update_key?(params[:key])
       DatabaseUpdater.new.update_cohorts!
