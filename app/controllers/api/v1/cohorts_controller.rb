@@ -11,7 +11,7 @@ class Api::V1::CohortsController < ApplicationController
     if valid_consume_key?(params[:key])
       render json: CohortSerializer.new(Cohort.where(status: "Active"))
     else
-      render body: "Unauthorizer", status: 401
+      render body: "Unauthorized", status: 401
     end
   end
 
