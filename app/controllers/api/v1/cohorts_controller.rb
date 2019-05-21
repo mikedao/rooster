@@ -9,7 +9,7 @@ class Api::V1::CohortsController < ApplicationController
 
   def active
     if valid_consume_key?(params[:key])
-      render json: CohortSerializer.new(Cohort.where(status: "Active").includes(:students))
+      render json: ActivecohortSerializer.new(Cohort.where(status: "Active").includes(:students))
     else
       render body: "Unauthorized", status: 401
     end
